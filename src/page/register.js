@@ -25,8 +25,14 @@ const Register = () => {
     }
     return (
         <div>
-            <Formik initialValues={{}} onSubmit={(values) => {
+            <Formik initialValues={{}} onSubmit={(values, {resetForm}) => {
                 handleRegister(values)
+                resetForm({
+                    values: {
+                        username: "",
+                        password: ""
+                    }
+                })
             }}>
 
                 <Form>
@@ -39,11 +45,6 @@ const Register = () => {
                     <div>
                         <Field name={'password'} type="password"/>
                         <label>Password</label>
-                    </div>
-
-                    <div>
-                        <Field name={'repeat'} type="password"/>
-                        <label>Repeat your password</label>
                     </div>
 
                     <div>

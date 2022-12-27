@@ -26,8 +26,14 @@ const Login = () => {
 
     return (
         <div>
-            <Formik initialValues={{}} onSubmit={(values) => {
+            <Formik initialValues={{}} onSubmit={(values, {resetForm}) => {
                 handleLogin(values)
+                resetForm({
+                    values: {
+                        username: "",
+                        password: ""
+                    }
+                })
             }}>
 
                 <Form>
