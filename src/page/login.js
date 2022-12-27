@@ -4,21 +4,17 @@ import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {login} from "../service/userService";
 import './CSS/login.css';
-import * as Yup from "yup";
-
-const InputSchema = Yup.object().shape({
-    username: Yup.string()
-        .required("Required"),
-    password: Yup.string()
-        .required("Required"),
-})
 
 const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleLogin = async (values) => {
-        let dataLogin = await dispatch(login(values))
-        checkLogin(dataLogin)
+        if (values.username === '' || values.password === '') {
+            alert('No username or password information yet')
+        } else {
+            let dataLogin = await dispatch(login(values))
+            checkLogin(dataLogin)
+        }
     }
 
     const checkLogin = (dataLogin) => {
@@ -35,14 +31,14 @@ const Login = () => {
     return (<>
         <div className="veen" id="background">
             <div className="wrapper">
-                <Formik validationSchema={InputSchema} initialValues={{}} onSubmit={(values, {resetForm}) => {
-                    handleLogin(values)
-                    resetForm({
-                        values: {
-                            username: "", password: ""
-                        }
-                    })
-                }}>
+                <Formik
+                    initialValues={{
+                        username: "", password: ""
+                    }}
+                    onSubmit={(values, {resetForm}) => {
+                        handleLogin(values)
+                        resetForm()
+                    }}>
                     <Form id="login" tabIndex="500">
                         <h3>Login</h3>
                         <div className="mail">
