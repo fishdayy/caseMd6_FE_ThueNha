@@ -3,6 +3,8 @@ import Login from "./page/login";
 import {useSelector} from "react-redux";
 import Register from "./page/register";
 import Home from "./page/home";
+import './App.css';
+import Navbar from "./components/NavBar";
 
 function App() {
   let dataUser = useSelector(state => {
