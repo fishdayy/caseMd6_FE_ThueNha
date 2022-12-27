@@ -5,7 +5,7 @@ export default function Navbar() {
                 <div className='col-12'>
                     <nav className="navbar navbar-expand-lg bg-body-tertiary">
                         <div className="container-fluid">
-                            <a className="navbar-brand" href="#">Navbar</a>
+                            <a className="navbar-brand" href="#"><img src="https://asahiluxstay.com/v2/images/logo.png?v=2" className="logo"/></a>
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                     aria-expanded="false" aria-label="Toggle navigation">
@@ -16,30 +16,28 @@ export default function Navbar() {
                                     <li className="nav-item">
                                         <a className="nav-link active" aria-current="page" href="#">Home</a>
                                     </li>
-                                    <li className="nav-item">
-                                        <a className="nav-link" href="#">Link</a>
-                                    </li>
                                     <li className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" href="#" role="button"
                                            data-bs-toggle="dropdown" aria-expanded="false">
-                                            Dropdown
+                                            Post
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#">Action</a></li>
-                                            <li><a className="dropdown-item" href="#">Another action</a></li>
+                                            <li><a className="dropdown-item" href="#">Create</a></li>
                                             <li>
                                                 <hr className="dropdown-divider"/>
                                             </li>
-                                            <li><a className="dropdown-item" href="#">Something else here</a></li>
+                                            <li><a className="dropdown-item" href="#">List My Posts</a></li>
+
                                         </ul>
                                     </li>
+                                </ul>
+                                <ul className="navbar-nav">
                                     <li className="nav-item">
-                                        <a className="nav-link disabled">Disabled</a>
+                                        <a className="nav-link active" aria-current="page" href="#">Username</a>
                                     </li>
                                 </ul>
                                 <form className="d-flex" role="search">
                                     <button className="btn btn-outline-danger" type="submit">Log Out</button>
-
                                 </form>
                             </div>
                         </div>
