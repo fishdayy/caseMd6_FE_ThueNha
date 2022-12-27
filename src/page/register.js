@@ -2,6 +2,8 @@ import React from 'react';
 import {Field, Form, Formik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {register} from "../service/userService";
+import './CSS/login.css'
+
 import {Link, useNavigate} from "react-router-dom";
 
 const Register = () => {
