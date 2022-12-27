@@ -24,34 +24,32 @@ const Register = () => {
         }
     }
     return (
-        <div>
-            <Formik initialValues={{}} onSubmit={(values) => {
-                handleRegister(values)
-            }}>
-
-                <Form>
-
-                    <div>
-                        <Field name={'username'} type="text"/>
-                        <label className="form-label" htmlFor="form3Example1c">Your Name</label>
+        <div className="veen">
+            <div className="wrapper">
+                <form id="login" tabIndex="500">
+                    <h3>Register</h3>
+                    <div className="mail">
+                        <input type="mail" name=""/>
+                        <label>Mail or Username</label>
                     </div>
-
-                    <div>
-                        <Field name={'password'} type="password"/>
+                    <div className="passwd">
+                        <input type="password" name=""/>
                         <label>Password</label>
                     </div>
-
-                    <div>
-                        <Field name={'repeat'} type="password"/>
-                        <label>Repeat your password</label>
+                    {/*<div className="passwd">*/}
+                    {/*    <input type="password" name=""/>*/}
+                    {/*    <label>Re-Password</label>*/}
+                    {/*</div>*/}
+                    <div className="submit">
+                        <button className="dark">Submit</button>
                     </div>
-
-                    <div>
-                        <button className="btn btn-primary btn-lg">Register</button>
+                    <div className="submit">
+                        <p>Already an user?</p>
+                        <button className="dark">Login</button>
                     </div>
-                </Form>
+                </form>
 
-            </Formik>
+            </div>
         </div>
     );
 };
