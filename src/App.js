@@ -7,19 +7,17 @@ import Search from "./components/Search";
 import Home from "./page/home";
 
 function App() {
-  return (
-    <div className="App">
-        <Navbar/>
-        <Banner/>
-        <Search/>
+    return (
+        <div className="App">
+            {/*<Navbar/>*/}
+            {/*<Banner/>*/}
+            {/*<Search/>*/}
+            {/*<Home/>*/}
+            {/*<Login/>*/}
+            {/*<Register/>*/}
 
-            <Home/>
-
-
-        {/*<Login/>*/}
-      {/*  <Register/>*/}
-    </div>
-  );
+        </div>
+    );
 }
 
 export default App;

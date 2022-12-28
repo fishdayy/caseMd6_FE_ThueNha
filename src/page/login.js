@@ -26,7 +26,7 @@ const Login = () => {
     }
 
     return (
-        <div className="veen">
+        <div className="veen" id="background">
             <div className="wrapper">
                 <form id="login" tabIndex="500">
                     <h3>Login</h3>
