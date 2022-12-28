@@ -207,3 +207,9 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill{
 #background {
     background-image: url("https://www.biaslimited.com/wp-content/uploads/2020/03/fernando-alvarez-rodriguez-M7GddPqJowg-unsplash-1500x430.jpg");
 }
+
+.logo{
+    width: 140px;
+    top: 4%;
+    left: 10%;
+}

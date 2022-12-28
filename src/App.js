@@ -1,24 +1,33 @@
-import './App.css';
+import {Route,Routes} from "react-router-dom";
 import Login from "./page/login";
+import {useSelector} from "react-redux";
 import Register from "./page/register";
+import Home from "./page/home";
+import './App.css';
 import Navbar from "./components/NavBar";
 import Banner from "./components/Banner";
 import Search from "./components/Search";
-import Home from "./page/home";
 import Footer from "./components/Footer";
 
 function App() {
-    return (
-        <div className="App">
-            <Navbar/>
-            <Banner/>
-            <Search/>
-            <Home/>
-            {/*<Login/>*/}
-            {/*<Register/>*/}
-            <Footer/>
-        </div>
-    );
+
+  let dataUser = useSelector(state => {
+    return state.user.userNow
+  })
+  return (
+      <Routes>
+        {/*<Route path={'/'} element={<Register/>}></Route>*/}
+        {/*<Route path={'/login'} element={<Login/>}></Route>*/}
+        {/*{*/}
+        {/*  dataUser !=null ?*/}
+        {/*      <Route path={'/home'} element={<Home/>}>*/}
+        {/*      </Route>*/}
+        {/*      :*/}
+        {/*      <Route path="*" element={<Login/>}/>*/}
+        {/*}*/}
+          <Route path={'/home'} element={<Home/>}/>
+      </Routes>
+  );
 }
 
 export default App;
