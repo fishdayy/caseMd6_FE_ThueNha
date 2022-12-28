@@ -5,6 +5,7 @@ import Navbar from "./components/NavBar";
 import Banner from "./components/Banner";
 import Search from "./components/Search";
 import Home from "./page/home";
+import Footer from "./components/Footer";
 
 function App() {
     return (
@@ -15,7 +16,7 @@ function App() {
             {/*<Home/>*/}
             {/*<Login/>*/}
             {/*<Register/>*/}
-
+            <Footer/>
         </div>
     );
 }
