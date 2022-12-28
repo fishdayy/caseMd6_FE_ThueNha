@@ -4,6 +4,7 @@ import Register from "./page/register";
 import Navbar from "./components/NavBar";
 import Banner from "./components/Banner";
 import Search from "./components/Search";
+import Home from "./page/home";
 
 function App() {
   return (
@@ -11,6 +12,10 @@ function App() {
         <Navbar/>
         <Banner/>
         <Search/>
+
+            <Home/>
+
+
         {/*<Login/>*/}
       {/*  <Register/>*/}
     </div>
