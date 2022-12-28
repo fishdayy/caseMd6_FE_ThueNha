@@ -2,8 +2,9 @@ import React from 'react';
 import {Field, Form, Formik} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {register} from "../service/userService";
-import {Link, useNavigate} from "react-router-dom";
 import './CSS/login.css'
+
+import {Link, useNavigate} from "react-router-dom";
 
 const Register = () => {
     const navigate = useNavigate()
@@ -18,15 +19,15 @@ const Register = () => {
     }
     const checkRepeatUser = (registerMess) => {
         if (registerMess.payload.mess == 'Tài khoản đã tồn tại') {
-            alert('Already an user!')
+            alert('Tài khoản đã tồn tại')
         } else {
-            alert('Sign Up Success!')
+            alert('Tạo tài khoản thành công')
             navigate('/login')
         }
     }
     return (
         <div>
-            <div className="veen">
+            <div className="veen" id="background">
                 <div className="wrapper">
                     <form id="login" tabIndex="500">
                         <h3>Register</h3>

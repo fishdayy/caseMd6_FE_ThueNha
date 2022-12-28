@@ -5,8 +5,12 @@ import Register from "./page/register";
 import Home from "./page/home";
 import './App.css';
 import Navbar from "./components/NavBar";
+import Banner from "./components/Banner";
+import Search from "./components/Search";
+import Footer from "./components/Footer";
 
 function App() {
+
   let dataUser = useSelector(state => {
     return state.user.userNow
   })
@@ -27,4 +31,3 @@ function App() {
 }
 
 export default App;
-
