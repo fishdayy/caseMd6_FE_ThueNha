@@ -10,10 +10,10 @@ import Footer from "./components/Footer";
 function App() {
     return (
         <div className="App">
-            {/*<Navbar/>*/}
-            {/*<Banner/>*/}
-            {/*<Search/>*/}
-            {/*<Home/>*/}
+            <Navbar/>
+            <Banner/>
+            <Search/>
+            <Home/>
             {/*<Login/>*/}
             {/*<Register/>*/}
             <Footer/>

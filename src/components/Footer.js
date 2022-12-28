@@ -3,8 +3,10 @@ import "../page/CSS/footer.css"
 export default function Footer(){
     return(
         <>
+
             <div className="main-footer">
                 <div className="container">
+                    <hr/>
                     <div className="row">
                         <div className="col">
                             <h4>Support</h4>
