@@ -1,61 +1,79 @@
 import React from 'react';
-import {Field, Form, Formik} from "formik";
-import {useDispatch, useSelector} from "react-redux";
+import {ErrorMessage, Field, Form, Formik} from "formik";
+import {useDispatch} from "react-redux";
 import {register} from "../service/userService";
-import './CSS/login.css'
-
 import {Link, useNavigate} from "react-router-dom";
+import './CSS/login.css';
+import * as Yup from "yup";
+
+const InputSchema = Yup.object().shape({
+    username: Yup.string()
+        .min(3, "Too Short!")
+        .max(50, "Too Long!")
+        .required("Please Enter Username!"),
+    password: Yup.string()
+        .min(3, "Too Short!")
+        .max(50, "Too Long!")
+        .required("Please Enter Password!"),
+})
 
 const Register = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const handleRegister = async (values) => {
         let data = {
-            username: values.username,
-            password: values.password
+            username: values.username, password: values.password
         }
         let registerMess = await dispatch(register(data))
         checkRepeatUser(registerMess)
     }
     const checkRepeatUser = (registerMess) => {
         if (registerMess.payload.mess == 'Tài khoản đã tồn tại') {
-            alert('Tài khoản đã tồn tại')
+            alert('Account already exists')
         } else {
-            alert('Tạo tài khoản thành công')
+            alert('Successful account registration')
             navigate('/login')
         }
     }
-    return (
-        <div>
-            <div className="veen" id="background">
-                <div className="wrapper">
-                    <form id="login" tabIndex="500">
+    return (<div>
+        <div className="veen" id="background">
+            <div className="wrapper">
+                <Formik
+                    validationSchema={InputSchema}
+                    initialValues={{
+                        username: "", password: ""
+                    }}
+                    onSubmit={(values, {resetForm}) => {
+                        handleRegister(values)
+                        resetForm()
+                    }}
+                >
+                    <Form id="login" tabIndex="500">
                         <h3>Register</h3>
                         <div className="mail">
-                            <input type="mail" name=""/>
+                            <Field name={'username'} type="text"/>
+                            <ErrorMessage name="username" component="div" style={{color: "red"}}></ErrorMessage>
                             <label>Mail or Username</label>
                         </div>
                         <div className="passwd">
-                            <input type="password" name=""/>
+                            <Field name={'password'} type="password"/>
+                            <ErrorMessage name="password" component="div" style={{color: "red"}}></ErrorMessage>
                             <label>Password</label>
                         </div>
-                        {/*<div className="passwd">*/}
-                        {/*    <input type="password" name=""/>*/}
-                        {/*    <label>Re-Password</label>*/}
-                        {/*</div>*/}
                         <div className="submit">
-                            <button className="dark">Submit</button>
+                            <button className="dark" type={'submit'}>Submit</button>
                         </div>
-                        <div className="submit">
-                            <p>Already an user?</p>
-                            <button className="dark">Login</button>
-                        </div>
-                    </form>
-
+                    </Form>
+                </Formik>
+                <div className="submit">
+                    <p>Already an user?</p>
+                    <Link to={'/login'}>
+                        <button className="dark">Login</button>
+                    </Link>
                 </div>
             </div>
         </div>
-    );
+    </div>);
 };
 
 export default Register;

@@ -8,6 +8,7 @@ import Navbar from "./components/NavBar";
 import Banner from "./components/Banner";
 import Search from "./components/Search";
 import Footer from "./components/Footer";
+import CreatePost from "./page/createPost";
 
 function App() {
 
@@ -15,19 +16,19 @@ function App() {
     return state.user.userNow
   })
   return (
-      <Routes>
-        {/*<Route path={'/'} element={<Register/>}></Route>*/}
-        {/*<Route path={'/login'} element={<Login/>}></Route>*/}
-        {/*{*/}
-        {/*  dataUser !=null ?*/}
-        {/*      <Route path={'/home'} element={<Home/>}>*/}
-        {/*      </Route>*/}
-        {/*      :*/}
-        {/*      <Route path="*" element={<Login/>}/>*/}
-        {/*}*/}
-          <Route path={'/home'} element={<Home/>}/>
-      </Routes>
-
+      // <Routes>
+      //   <Route path={'/'} element={<Register/>}></Route>
+      //   <Route path={'/login'} element={<Login/>}></Route>
+      //   {
+      //     dataUser !=null ?
+      //         <Route path={'/home'} element={<Home/>}>
+      //         </Route>
+      //         :
+      //         <Route path="*" element={<Login/>}/>
+      //   }
+      //     <Route path={'/home'} element={<Home/>}/>
+      // </Routes>
+        <CreatePost/>
   );
 }
 
