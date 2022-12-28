@@ -2,7 +2,7 @@ import '../page/CSS/login.css'
 
 export default function Search() {
     return (
-        <div className="container" style={{border: "1px solid",borderRadius:"25px",boxShadow:"0px 1px 20px 5px",marginBottom:"50px"}}>
+        <div className="container" style={{borderRadius:"25px",boxShadow:"0px 1px 25px 0px rgba(193,193,193,1)",marginBottom:"50px"}}>
             <ul className="nav nav-pills mb-3  nav-pills-flex">
                 <li class="nav-item" role="presentation">
                     <button className="nav-link pills-home-tab" id="pills-home-tab" data-bs-toggle="#pills-home"
