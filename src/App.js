@@ -4,6 +4,7 @@ import {useSelector} from "react-redux";
 import Register from "./page/register";
 import Home from "./page/home";
 import './App.css';
+import ListHome from "./page/listHomes";
 
 function App() {
     let dataUser = useSelector(state => {
@@ -16,6 +17,7 @@ function App() {
             {
                 dataUser != null ?
                     <Route path={'/home'} element={<Home/>}>
+                        <Route path={'/home'} element={<ListHome/>}></Route>
                     </Route>
                     :
                     <Route path="*" element={<Login/>}/>
