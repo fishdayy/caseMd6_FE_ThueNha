@@ -3,10 +3,11 @@ import './CSS/create.css';
 import Navbar from "../components/NavBar";
 import Banner from "../components/Banner";
 import Search from "../components/Search";
+import Footer from "../components/Footer";
 
 const CreatePost = () => {
     return (
-        <>
+        <div>
             <Navbar/>
             <Banner/>
             <h2 style={{textAlign:"center",marginBottom:"20px",marginTop:"20px"}}>Chia sẻ thông tin về chỗ ở của bạn cho chúng tôi</h2>
@@ -127,14 +128,14 @@ const CreatePost = () => {
                                     </li>
                                 </div>
                             </div>
-
                         </ul>
                     </form>
                 </div>
             </div>
-
-
-        </>
+            <div style={{marginTop:"50%"}}>
+                <Footer/>
+            </div>
+        </div>
     )
 }
 export default CreatePost
