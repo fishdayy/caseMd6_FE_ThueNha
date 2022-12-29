@@ -17,8 +17,8 @@ const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleLogin = async (values) => {
-        let dataLogin = await dispatch(login(values))
-        checkLogin(dataLogin)
+            let dataLogin = await dispatch(login(values))
+            checkLogin(dataLogin)
     }
 
     const checkLogin = (dataLogin) => {

@@ -1,6 +1,7 @@
 import "../page/CSS/footer.css"
 
 export default function Footer(){
+const Footer = () => {
     return(
         <>
 
@@ -60,3 +61,5 @@ export default function Footer(){
         </>
     )
 }
+}
+export default Footer;
