@@ -58,7 +58,14 @@ const DetailPost = () => {
                 <div className="container">
                     <div className="row justify-content-center">
                         <h3>Oriental Sail Hạ Long 2 ngày 1 đêm</h3>
-                        <p>Phường Tuần Châu - Thành phố Hạ Long - Tỉnh Quảng Ninh</p>
+                        <div style={{display: "flex", alignItems: "center"}}>
+                            <i className="fa-solid fa-location-pin" style={{color: "black", padding: "0 13px"}}></i>
+                            <div className="nav-link-strong">
+                                <p style={{color: "black"}}>
+                                    Phường Tuần Châu - Thành phố Hạ Long - Tỉnh Quảng Ninh
+                                </p>
+                            </div>
+                        </div>
                         <div style={{display: "flex", alignItems: "center"}}>
                             <i className="fa-solid fa-home" style={{color: "black", padding: "0 10px"}}></i>
                             <div className="nav-link-strong">
@@ -80,6 +87,14 @@ const DetailPost = () => {
                             <div className="nav-link-strong">
                                 <p style={{color: "black"}}>
                                     3 Bedroom
+                                </p>
+                            </div>
+                        </div>
+                        <div style={{display: "flex", alignItems: "center"}}>
+                            <i className="fa-solid fa-square-check" style={{color: "black", padding: "0 10px"}}></i>
+                            <div className="nav-link-strong">
+                                <p style={{color: "black"}}>
+                                    Còn phòng
                                 </p>
                             </div>
                         </div>
