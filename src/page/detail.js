@@ -95,9 +95,9 @@ const Detail = () => {
                             </div>
                             <div className="col-md-4" style={{width: "30%"}}>
                                 <div className="flex-tab-color-price">
-                                    <strong>Chỉ từ <small>2.520.000 <sup>đ</sup> /đêm</small></strong>
+                                    <strong>From <small>{dataHome[0] && dataHome[0].price}<sup>$</sup> / Day</small></strong>
                                     <button className="btn btn-success" style={{borderRadius:"0px"}} type="submit"
-                                    >Đặt ngay
+                                    >Booking
                                     </button>
                                 </div>
                             </div>
@@ -106,12 +106,12 @@ const Detail = () => {
                 </div>
                 <div className="container">
                     <div className="row justify-content-center">
-                        <h3>Oriental Sail Hạ Long 2 ngày 1 đêm</h3>
+                        <h3>{dataHome[0] && dataHome[0].name}</h3>
                         <div style={{display: "flex", alignItems: "center"}}>
                             <i className="fa-solid fa-location-pin" style={{color: "black", padding: "0 13px"}}></i>
                             <div className="nav-link-strong">
                                 <p style={{color: "black"}}>
-                                    Phường Tuần Châu - Thành phố Hạ Long - Tỉnh Quảng Ninh
+                                    {dataHome[0] && dataHome[0].address}
                                 </p>
                             </div>
                         </div>
@@ -127,7 +127,7 @@ const Detail = () => {
                             <i className="fa-solid fa-sink" style={{color: "black", padding: "0 10px"}}></i>
                             <div className="nav-link-strong">
                                 <p style={{color: "black"}}>
-                                    2 Bathroom
+                                    {dataHome[0] && dataHome[0].bathroom} Bathroom
                                 </p>
                             </div>
                         </div>
@@ -135,7 +135,7 @@ const Detail = () => {
                             <i className="fa-solid fa-bed" style={{color: "black", padding: "0 8px"}}></i>
                             <div className="nav-link-strong">
                                 <p style={{color: "black"}}>
-                                    3 Bedroom
+                                    {dataHome[0] && dataHome[0].bedroom} Bedroom
                                 </p>
                             </div>
                         </div>
@@ -143,12 +143,12 @@ const Detail = () => {
                             <i className="fa-solid fa-square-check" style={{color: "black", padding: "0 10px"}}></i>
                             <div className="nav-link-strong">
                                 <p style={{color: "black"}}>
-                                    Còn phòng
+                                    {dataHome[0] && dataHome[0].status}
                                 </p>
                             </div>
                         </div>
                         <div className="price">
-                            <strong>Chỉ từ <small>2.520.000<sup>$</sup> / Day</small></strong>
+                            <strong>From <small>{dataHome[0] && dataHome[0].price}<sup>$</sup> / Day</small></strong>
                         </div>
                     </div>
                     <div className="description">
