@@ -36,11 +36,19 @@ const CreatePost = () => {
                             <label>Category</label>
                         </div>
                         <div className="bedroom">
-                            <input type="number" name=""/>
+                            <select id="bedroom">
+                                <option value="firstBedroom">1</option>
+                                <option value="secondBedroom">2</option>
+                                <option value="thirdBedroom">3</option>
+                            </select>
                             <label>Bedroom</label>
                         </div>
                         <div className="bathroom">
-                            <input type="number" name=""/>
+                            <select id="bathroom">
+                                <option value="firstHotel">1</option>
+                                <option value="secondHostel">2</option>
+                                <option value="thirdHomestay">3</option>
+                            </select>
                             <label>Bathroom</label>
                         </div>
                         <div className="image">
@@ -57,6 +65,11 @@ const CreatePost = () => {
                         <ul style={{listStyleType: "upper-roman"}}>
                             <div>
                                 <div>
+                                    <img
+                                        src="https://a0.muscache.com/4ea/air/v2/pictures/da2e1a40-a92b-449e-8575-d8208cc5d409.jpg"
+                                        style={{width: "120px", height: "120px"}}/>
+                                </div>
+                                <div>
                                     <li>
                                         <strong>
                                             Chia sẻ thông tin về chỗ ở của bạn cho chúng tôi
@@ -69,15 +82,18 @@ const CreatePost = () => {
                                     </li>
                                 </div>
 
-                                <div>
-                                    <img
-                                        src="https://a0.muscache.com/4ea/air/v2/pictures/da2e1a40-a92b-449e-8575-d8208cc5d409.jpg"
-                                        style={{width: "120px", height: "120px"}}/>
-                                </div>
+
 
                             </div>
                             <hr/>
                             <div>
+                                <div>
+                                    <div>
+                                        <img
+                                            src="https://a0.muscache.com/4ea/air/v2/pictures/bfc0bc89-58cb-4525-a26e-7b23b750ee00.jpg"
+                                            style={{width:"120px",height:"120px"}}/>
+                                    </div>
+                                </div>
                                 <div>
                                     <li>
                                         <strong>
@@ -88,17 +104,17 @@ const CreatePost = () => {
                                             thực hiện. </p>
                                     </li>
                                 </div>
-                                <div>
-                                    <div>
-                                        <img
-                                            src="https://a0.muscache.com/4ea/air/v2/pictures/bfc0bc89-58cb-4525-a26e-7b23b750ee00.jpg"
-                                            style={{width:"120px",height:"120px"}}/>
-                                    </div>
-                                </div>
+
                             </div>
 
                             <hr/>
                             <div>
+                                <div>
+                                    <img
+                                        src="https://a0.muscache.com/4ea/air/v2/pictures/c0634c73-9109-4710-8968-3e927df1191c.jpg"
+                                        style={{width:"120px",height:"120px"}}/>
+                                </div>
+
                                 <div>
                                     <li>
                                         <strong>
@@ -109,11 +125,6 @@ const CreatePost = () => {
                                             khởi
                                             điểm hay đăng mục cho thuê. </p>
                                     </li>
-                                </div>
-                                <div>
-                                    <img
-                                        src="https://a0.muscache.com/4ea/air/v2/pictures/c0634c73-9109-4710-8968-3e927df1191c.jpg"
-                                        style={{width:"120px",height:"120px"}}/>
                                 </div>
                             </div>
 
