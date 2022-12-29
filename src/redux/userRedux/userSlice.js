@@ -11,7 +11,9 @@ const userSlice = createSlice({
     extraReducers: builder => {
         builder.addCase(login.fulfilled, (state, action) => {
             state.userNow = action.payload
+            console.log(action.payload)
             localStorage.setItem('user', JSON.stringify(action.payload))
+            localStorage.setItem('userId',action.payload.userFind[0].id)
         })
         builder.addCase(changePassword.fulfilled, (state, action) => {
             state.userNow = action.payload.user

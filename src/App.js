@@ -8,7 +8,8 @@ import Navbar from "./components/NavBar";
 import Banner from "./components/Banner";
 import Search from "./components/Search";
 import Footer from "./components/Footer";
-import CreatePost from "./page/createPost";
+import CreatePost from "./page/afterLogin/createPost";
+import {GetList} from "./page/afterLogin/getList";
 
 function App() {
 
@@ -16,19 +17,21 @@ function App() {
     return state.user.userNow
   })
   return (
-      // <Routes>
-      //   <Route path={'/'} element={<Register/>}></Route>
-      //   <Route path={'/login'} element={<Login/>}></Route>
-      //   {
-      //     dataUser !=null ?
-      //         <Route path={'/home'} element={<Home/>}>
-      //         </Route>
-      //         :
-      //         <Route path="*" element={<Login/>}/>
-      //   }
-      //     <Route path={'/home'} element={<Home/>}/>
-      // </Routes>
-        <CreatePost/>
+      <Routes>
+        <Route path={'/'} element={<Register/>}></Route>
+        <Route path={'/login'} element={<Login/>}></Route>
+        {
+          dataUser !=null ?
+              <Route path={'/home'} element={<Home/>}>
+                  <Route path={''} element={<GetList/>}></Route>
+                  <Route path={'create-post'} element={<CreatePost/>}></Route>
+              </Route>
+              :
+              <Route path="*" element={<Login/>}/>
+        }
+          <Route path={'/home'} element={<Home/>}/>
+      </Routes>
+      //   <CreatePost/>
   );
 }
 

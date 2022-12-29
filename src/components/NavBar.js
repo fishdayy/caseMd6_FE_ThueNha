@@ -1,4 +1,7 @@
+import {useNavigate} from "react-router-dom";
+
 export default function Navbar() {
+    const navigate = useNavigate()
     return (
         <>
             <div className='row'>
@@ -14,7 +17,7 @@ export default function Navbar() {
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li className="nav-item">
-                                        <a className="nav-link active" aria-current="page" href="#">Home</a>
+                                        <a className="nav-link active" aria-current="page" href="/home">Home</a>
                                     </li>
                                     <li className="nav-item dropdown">
                                         <a className="nav-link dropdown-toggle" href="#" role="button"
@@ -22,7 +25,7 @@ export default function Navbar() {
                                             Post
                                         </a>
                                         <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#">Create</a></li>
+                                            <li><a className="dropdown-item" href="/home/create-post">Create</a></li>
                                             <li>
                                                 <hr className="dropdown-divider"/>
                                             </li>
@@ -37,7 +40,11 @@ export default function Navbar() {
                                     </li>
                                 </ul>
                                 <form className="d-flex" role="search">
-                                    <button className="btn btn-outline-danger" type="submit">Log Out</button>
+                                    <button onClick={() => {
+                                        localStorage.clear()
+                                        navigate('/login')
+                                    }} className="btn btn-outline-danger" type="submit">Log Out
+                                    </button>
                                 </form>
                             </div>
                         </div>
