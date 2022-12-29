@@ -21,8 +21,12 @@ const CreatePost = () => {
                             <label>Name</label>
                         </div>
                         <div className="address">
-                            <input type="number" name=""/>
+                            <input type="text" name=""/>
                             <label>Address</label>
+                        </div>
+                        <div className="priceRent">
+                            <input type="number" name=""/>
+                            <label>Price</label>
                         </div>
                         <div className="description">
                             <textarea style={{height: "200px"}} name=""/>
@@ -63,7 +67,7 @@ const CreatePost = () => {
                 </div>
                 <div className="infoCreate" id="backgroundCreate" style={{float: "left"}}>
                     <form id="createPost" tabIndex="500">
-                        <ul style={{listStyleType: "upper-roman"}}>
+                        <ol>
                             <div>
                                 <div>
                                     <img
@@ -82,9 +86,6 @@ const CreatePost = () => {
                                         </p>
                                     </li>
                                 </div>
-
-
-
                             </div>
                             <hr/>
                             <div>
@@ -105,9 +106,7 @@ const CreatePost = () => {
                                             thực hiện. </p>
                                     </li>
                                 </div>
-
                             </div>
-
                             <hr/>
                             <div>
                                 <div>
@@ -115,7 +114,6 @@ const CreatePost = () => {
                                         src="https://a0.muscache.com/4ea/air/v2/pictures/c0634c73-9109-4710-8968-3e927df1191c.jpg"
                                         style={{width:"120px",height:"120px"}}/>
                                 </div>
-
                                 <div>
                                     <li>
                                         <strong>
@@ -128,7 +126,7 @@ const CreatePost = () => {
                                     </li>
                                 </div>
                             </div>
-                        </ul>
+                        </ol>
                     </form>
                 </div>
             </div>
