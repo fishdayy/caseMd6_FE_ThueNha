@@ -1,14 +1,19 @@
 import React from 'react';
-import {Link,Outlet} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {Outlet} from "react-router-dom";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import Banner from "../components/Banner";
 
 const Home = () => {
-    const userNow = useSelector(state=>{
-        return state.user
-    })
     return (
         <div>
+            <div style={{marginBottom:"50px"}}>
+                <NavBar></NavBar>
+            </div>
             <Outlet/>
+            <div>
+                <Footer></Footer>
+            </div>
         </div>
     );
 };

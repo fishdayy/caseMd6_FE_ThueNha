@@ -5,6 +5,10 @@ import Register from "./page/register";
 import Home from "./page/home";
 import './App.css';
 import ListHome from "./page/listHomes";
+import Detail from "./page/detail";
+import YourHomes from "./page/yourHomes";
+import HomesByCategory from "./page/homesByCategory";
+import HomesByAddress from "./page/homeByAddress";
 
 function App() {
     let dataUser = useSelector(state => {
@@ -18,6 +22,10 @@ function App() {
                 dataUser != null ?
                     <Route path={'/home'} element={<Home/>}>
                         <Route path={'/home'} element={<ListHome/>}></Route>
+                        <Route path={'detail/:id'} element={<Detail></Detail>}></Route>
+                        <Route path={'your-homes'} element={<YourHomes></YourHomes>}></Route>
+                        <Route path={'homes-by-category'} element={<HomesByCategory></HomesByCategory>}></Route>
+                        <Route path={'homes-find'} element={<HomesByAddress></HomesByAddress>}></Route>
                     </Route>
                     :
                     <Route path="*" element={<Login/>}/>

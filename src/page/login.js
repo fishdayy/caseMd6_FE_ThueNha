@@ -1,20 +1,24 @@
 import React from 'react';
-import {Field, Form, Formik} from "formik";
+import {ErrorMessage, Field, Form, Formik} from "formik";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {login} from "../service/userService";
 import './CSS/login.css';
+import * as Yup from "yup";
+
+const InputSchema = Yup.object().shape({
+    username: Yup.string()
+        .required("Please Enter Username!"),
+    password: Yup.string()
+        .required("Please Enter Password!"),
+})
 
 const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleLogin = async (values) => {
-        if (values.username === '' || values.password === '') {
-            alert('No username or password information yet')
-        } else {
             let dataLogin = await dispatch(login(values))
             checkLogin(dataLogin)
-        }
     }
 
     const checkLogin = (dataLogin) => {
@@ -32,6 +36,7 @@ const Login = () => {
         <div className="veen" id="background">
             <div className="wrapper">
                 <Formik
+                    validationSchema={InputSchema}
                     initialValues={{
                         username: "", password: ""
                     }}
@@ -43,10 +48,12 @@ const Login = () => {
                         <h3>Login</h3>
                         <div className="mail">
                             <Field type="text" name={'username'}/>
+                            <ErrorMessage name="username" component="div" style={{color: "red"}}></ErrorMessage>
                             <label>Mail or Username</label>
                         </div>
                         <div className="passwd">
                             <Field name={'password'} type="password"/>
+                            <ErrorMessage name="password" component="div" style={{color: "red"}}></ErrorMessage>
                             <label>Password</label>
                         </div>
                         <div className="submit">
