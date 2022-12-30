@@ -40,3 +40,11 @@ export const showHomesByAddress = createAsyncThunk(
         return res.data
     }
 )
+
+export const createHome = createAsyncThunk(
+    'homes/createHome',
+    async (data) => {
+        const res = await axios.post("http://localhost:8080/homes", data)
+        return res.data
+    }
+)

@@ -16,3 +16,11 @@ export const showImagesByHomeId = createAsyncThunk(
         return res.data
     }
 )
+
+export const createImg = createAsyncThunk(
+    'imgURLs/createImg',
+    async (data) => {
+        const res = await axios.post("http://localhost:8080/imageHomes", data)
+        return res.data
+    }
+);

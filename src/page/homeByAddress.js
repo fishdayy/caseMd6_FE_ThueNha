@@ -2,6 +2,7 @@ import React from 'react';
 import {useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import Search from "../components/Search";
+import Banner from "../components/Banner";
 
 const HomesByAddress = () => {
 
@@ -11,6 +12,9 @@ const HomesByAddress = () => {
     })
 
     return (<div>
+        <div>
+            <Banner></Banner>
+        </div>
         <div>
             <Search></Search>
         </div>

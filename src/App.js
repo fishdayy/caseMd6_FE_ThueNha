@@ -9,6 +9,7 @@ import Detail from "./page/detail";
 import YourHomes from "./page/yourHomes";
 import HomesByCategory from "./page/homesByCategory";
 import HomesByAddress from "./page/homeByAddress";
+import CreatePost from "./page/create";
 
 function App() {
     let dataUser = useSelector(state => {
@@ -23,6 +24,7 @@ function App() {
                     <Route path={'/home'} element={<Home/>}>
                         <Route path={'/home'} element={<ListHome/>}></Route>
                         <Route path={'detail/:id'} element={<Detail></Detail>}></Route>
+                        <Route path={'create'} element={<CreatePost/>}></Route>
                         <Route path={'your-homes'} element={<YourHomes></YourHomes>}></Route>
                         <Route path={'homes-by-category'} element={<HomesByCategory></HomesByCategory>}></Route>
                         <Route path={'homes-find'} element={<HomesByAddress></HomesByAddress>}></Route>
