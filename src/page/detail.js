@@ -30,51 +30,20 @@ const Detail = () => {
         })()
     }, [])
 
-    // return (
-    //     <div className="row">
-    //         <div className="col-12">
-    //             <div className="col-6 offset-md-1" style={{width: "322px"}}>
-    //                 <div id="carouselExampleControls" className="carousel slide" data-ride="carousel"
-    //                      style={{width: "322px", height: "306px"}}>
-    //                     <div className="carousel-inner">
-    //                         {dataImage.map(item => (
-    //                             <div className="carousel-item active">
-    //                                 <img className="d-block w-100" src={item.image}
-    //                                      style={{width: "322px", height: "306px", borderRadius: "20px"}}/>
-    //                             </div>
-    //                         ))}
-    //                     </div>
-    //
-    //                 </div>
-    //                 <div>
-    //                     <strong style={{textAlign: "left"}}>{dataHome[0] && dataHome[0].name}</strong>
-    //                     <p style={{
-    //                         fontWeight: "200",
-    //                         textAlign: "left",
-    //                         marginBottom: "0"
-    //                     }}>{dataHome[0] && dataHome[0].categoryId}</p>
-    //                     <p style={{
-    //                         fontWeight: "200",
-    //                         textAlign: "left",
-    //                         marginBottom: "0"
-    //                     }}>{dataHome[0] && dataHome[0].address}</p>
-    //                     <strong style={{textAlign: "left"}}>{dataHome[0] && dataHome[0].price}$<label
-    //                         style={{fontWeight: "200", marginLeft: "10px"}}>/ Day</label></strong>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </div>
-    // )
     return (
         <div>
-            <div id="imageDetail" style={{display: "flex"}}>
-                {dataImage.map(item => (
-                    <div style={{float: "left"}}>
-                        <img src={item.image}
-                             style={{width: "507px", height: "240px"}}
-                        />
-                    </div>
-                ))}
+            <div className="row" id="imageDetail" style={{display: "flex"} }>
+                <div style={{float: "left"}} className="col-12">
+
+                {dataImage.slice(0, 3).map((item, index) => {
+                        return (
+                                <img src={item.image} className="col-4"
+                                     width="100%" height="278px"
+                                />
+                        )
+                    }
+                )}
+                </div>
             </div>
             <div className="gray-simple pt-4">
                 <div className="container-fluid container-fluid-tab"
@@ -95,8 +64,9 @@ const Detail = () => {
                             </div>
                             <div className="col-md-4" style={{width: "30%"}}>
                                 <div className="flex-tab-color-price">
-                                    <strong>From <small>{dataHome[0] && dataHome[0].price}<sup>$</sup> / Day</small></strong>
-                                    <button className="btn btn-success" style={{borderRadius:"0px"}} type="submit"
+                                    <strong>From <small>{dataHome[0] && dataHome[0].price}<sup>$</sup> /
+                                        Day</small></strong>
+                                    <button className="btn btn-success" style={{borderRadius: "0px"}} type="submit"
                                     >Booking
                                     </button>
                                 </div>
@@ -119,7 +89,7 @@ const Detail = () => {
                             <i className="fa-solid fa-home" style={{color: "black", padding: "0 10px"}}></i>
                             <div className="nav-link-strong">
                                 <p style={{color: "black"}}>
-                                    Hotel
+                                    {dataHome[0] && dataHome[0].category}
                                 </p>
                             </div>
                         </div>
@@ -160,9 +130,9 @@ const Detail = () => {
                             <strong className="col-12">Photo Library</strong>
                         </div>
                         <div className="row">
-                            <div className="col-12" style={{display:"flex", flexWrap: "wrap"}}>
+                            <div className="col-12" style={{display: "flex", flexWrap: "wrap"}}>
                                 {dataImage.map(image => (
-                                    <div className="col-3" style={{marginRight:"10px",marginBottom:"10px"}}>
+                                    <div className="col-3" style={{marginRight: "10px", marginBottom: "10px"}}>
                                         <img className="" src={image.image}
                                              style={{width: "100%", height: "100%"}}
                                              alt="First slide"/>
@@ -171,22 +141,22 @@ const Detail = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="" style={{marginTop: "40px"}}>
-                        <div className="property_block_wrap style-2 ">
-                            <div className="property_block_wrap_header">
-                                <a data-bs-toggle="collapse" data-parent="#cMap" data-bs-target="#cMap"
-                                   aria-controls="cMap" href="javascript:void(0);" aria-expanded="true">
-                                    <h4 id="maptab" className="property_block_title fit-h5 container_scroll">Map</h4>
-                                </a>
-                            </div>
-                            <div id="cMap" className="panel-collapse collapse show">
-                                <div className="block-body  fit-h5-img">
-                                    <iframe width="100%" height="400px"
-                                            src="https://maps.google.com/maps?q=,20.922882921199644&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {/*<div className="" style={{marginTop: "40px"}}>*/}
+                    {/*    <div className="property_block_wrap style-2 ">*/}
+                    {/*        <div className="property_block_wrap_header">*/}
+                    {/*            <a data-bs-toggle="collapse" data-parent="#cMap" data-bs-target="#cMap"*/}
+                    {/*               aria-controls="cMap" href="javascript:void(0);" aria-expanded="true">*/}
+                    {/*                <h4 id="maptab" className="property_block_title fit-h5 container_scroll">Map</h4>*/}
+                    {/*            </a>*/}
+                    {/*        </div>*/}
+                    {/*        <div id="cMap" className="panel-collapse collapse show">*/}
+                    {/*            <div className="block-body  fit-h5-img">*/}
+                    {/*                <iframe width="100%" height="400px"*/}
+                    {/*                        src="https://maps.google.com/maps?q=,20.922882921199644&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"></iframe>*/}
+                    {/*            </div>*/}
+                    {/*        </div>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
                     <div className="comment" style={{marginTop: "20px"}}>
                         <strong>Comment</strong>
                     </div>
