@@ -10,6 +10,7 @@ import Search from "./components/Search";
 import Footer from "./components/Footer";
 import CreatePost from "./page/createPost";
 import DetailPost from "./page/detailPost";
+import Profile from "./page/profile";
 
 function App() {
 
@@ -30,7 +31,9 @@ function App() {
       //     <Route path={'/home'} element={<Home/>}/>
       // </Routes>
       //   <DetailPost/>
-      <Search/>
+      // <Search/>
+      // <Profile/>
+      <Home/>
   );
 }
 

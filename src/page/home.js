@@ -14,12 +14,19 @@ const Home = () => {
         return state.user
     })
     return (
-        <>
+        <div style={{backgroundColor:"white"}}>
             <Navbar/>
             <Banner/>
             <Search/>
+
             <div className="row">
                 <div className="col-12">
+                    <div>
+                        <h1 style={{textAlign:"center",color:"red"}}>Khám phá thêm địa điểm du lịch</h1>
+                     <p style={{textAlign:"center", marginBottom:"50px"}}>
+                         Những địa điểm lưu trú phổ biến được nhiều khách du lịch quan tâm và thường xuyên ghé thăm.
+                     </p>
+                    </div>
                     <div className="col-2 offset-md-1" style={{width: "322px",float:"left"}}>
                         <div id="carouselExampleControls" className="carousel slide" data-ride="carousel"
                              style={{width: "322px", height: "306px"}}>
@@ -65,7 +72,7 @@ const Home = () => {
             </div>
 
             <Footer/>
-        </>
+        </div>
 
 
     );
