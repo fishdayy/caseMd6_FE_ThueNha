@@ -5,6 +5,7 @@ import {register} from "../service/userService";
 import {Link, useNavigate} from "react-router-dom";
 import './CSS/login.css';
 import * as Yup from "yup";
+import Swal from "sweetalert2";
 
 const InputSchema = Yup.object().shape({
     username: Yup.string()
@@ -29,9 +30,19 @@ const Register = () => {
     }
     const checkRepeatUser = (registerMess) => {
         if (registerMess.payload.mess == 'Tài khoản đã tồn tại') {
-            alert('Account already exists')
+            Swal.fire({
+                title: 'Error!',
+                text: 'Account already exists',
+                icon: 'error',
+                confirmButtonText: 'Try Again'
+            })
         } else {
-            alert('Successful account registration')
+            Swal.fire({
+                icon: 'success',
+                title: 'Successful account registration',
+                showConfirmButton: false,
+                timer: 1500
+            })
             navigate('/')
         }
     }

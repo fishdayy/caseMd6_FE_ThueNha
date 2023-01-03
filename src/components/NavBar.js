@@ -1,5 +1,6 @@
 import {Link, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
     const navigate = useNavigate()
@@ -49,6 +50,12 @@ const Navbar = () => {
                                     <button onClick={() => {
                                         localStorage.clear()
                                         navigate('/')
+                                        Swal.fire({
+                                            icon: 'success',
+                                            title: 'Logout!',
+                                            showConfirmButton: false,
+                                            timer: 1500
+                                        })
                                     }} className="btn btn-outline-danger" type="submit">Log Out
                                     </button>
                                 </form>

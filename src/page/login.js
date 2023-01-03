@@ -6,6 +6,7 @@ import {login} from "../service/userService";
 import './CSS/login.css';
 import * as Yup from "yup";
 import LoginWithFb from "./loginWithFb";
+import Swal from 'sweetalert2'
 
 const InputSchema = Yup.object().shape({
     username: Yup.string()
@@ -15,6 +16,9 @@ const InputSchema = Yup.object().shape({
 })
 
 const Login = () => {
+
+    const Swal = require('sweetalert2')
+
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const handleLogin = async (values) => {
@@ -24,11 +28,24 @@ const Login = () => {
 
     const checkLogin = (dataLogin) => {
         if (dataLogin.payload.mess) {
-            alert('Login information is incorrect')
+            Swal.fire({
+                title: 'Error!',
+                text: 'Login information is incorrect',
+                icon: 'error',
+                confirmButtonText: 'Try Again'
+            })
             localStorage.clear()
         } else {
-            alert('Logged in successfully')
-            navigate('/home')
+            Swal.fire({
+                icon: 'success',
+                title: 'Logged in successfully',
+                showConfirmButton: false,
+                timer: 1500
+            })
+            setTimeout(() => {
+                clearTimeout()
+                navigate('/home')
+            }, 1500)
         }
     }
 
