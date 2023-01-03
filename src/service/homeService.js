@@ -48,3 +48,11 @@ export const createHome = createAsyncThunk(
         return res.data
     }
 )
+
+export const removeHome = createAsyncThunk(
+    'homes/removeHome',
+    async (id) => {
+        const res = await axios.delete('http://localhost:8080/homes/' + id)
+        return {...res.data.payload, id}
+    }
+)

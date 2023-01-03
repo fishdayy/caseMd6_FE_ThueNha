@@ -32,7 +32,7 @@ const Register = () => {
             alert('Account already exists')
         } else {
             alert('Successful account registration')
-            navigate('/login')
+            navigate('/')
         }
     }
     return (<div>
@@ -50,25 +50,25 @@ const Register = () => {
                 >
                     <Form id="login" tabIndex="500">
                         <h3>Register</h3>
-                        <div className="mail">
+                        <div className="mail" style={{display: "flex"}}>
                             <Field name={'username'} type="text"/>
                             <ErrorMessage name="username" component="div" style={{color: "red"}}></ErrorMessage>
                             <label>Mail or Username</label>
                         </div>
-                        <div className="passwd">
+                        <div className="passwd" style={{display: "flex"}}>
                             <Field name={'password'} type="password"/>
                             <ErrorMessage name="password" component="div" style={{color: "red"}}></ErrorMessage>
                             <label>Password</label>
                         </div>
                         <div className="submit">
-                            <button className="dark" type={'submit'}>Submit</button>
+                            <button className="dark" id="registerButton" type={'submit'}>Submit</button>
                         </div>
                     </Form>
                 </Formik>
                 <div className="submit">
-                    <p>Already an user?</p>
-                    <Link to={'/login'}>
-                        <button className="dark">Login</button>
+                    <p style={{marginBottom:"20px",marginTop:"10px"}}>Already an user?</p>
+                    <Link to={'/'}>
+                        <button className="dark" id="loginButton">Login</button>
                     </Link>
                 </div>
             </div>

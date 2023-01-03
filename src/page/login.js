@@ -5,6 +5,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {login} from "../service/userService";
 import './CSS/login.css';
 import * as Yup from "yup";
+import LoginWithFb from "./loginWithFb";
 
 const InputSchema = Yup.object().shape({
     username: Yup.string()
@@ -25,7 +26,6 @@ const Login = () => {
         if (dataLogin.payload.mess) {
             alert('Login information is incorrect')
             localStorage.clear()
-
         } else {
             alert('Logged in successfully')
             navigate('/home')
@@ -45,26 +45,29 @@ const Login = () => {
                         resetForm()
                     }}>
                     <Form id="login" tabIndex="500">
-                        <h3>Login</h3>
-                        <div className="mail">
+                        <h3 >Login</h3>
+                        <div className="mail" style={{display: "flex"}}>
                             <Field type="text" name={'username'}/>
                             <ErrorMessage name="username" component="div" style={{color: "red"}}></ErrorMessage>
                             <label>Mail or Username</label>
                         </div>
-                        <div className="passwd">
+                        <div className="passwd" style={{display: "flex"}}>
                             <Field name={'password'} type="password"/>
                             <ErrorMessage name="password" component="div" style={{color: "red"}}></ErrorMessage>
                             <label>Password</label>
                         </div>
                         <div className="submit">
-                            <button className="dark">Login</button>
+                            <button id="loginButton" className="dark">Login</button>
                         </div>
                     </Form>
                 </Formik>
+                <div>
+                    <LoginWithFb></LoginWithFb>
+                </div>
                 <div className="submit">
-                    <p>Don't have an account?</p>
-                    <Link to={'/'}>
-                        <button className="dark">Register</button>
+                    <p style={{marginBottom:"10px",marginTop:"10px"}}>Don't have an account?</p>
+                    <Link to={'/register'}>
+                        <button id="registerButton" className="dark">Register</button>
                     </Link>
                 </div>
             </div>

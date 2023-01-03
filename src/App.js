@@ -10,6 +10,7 @@ import YourHomes from "./page/yourHomes";
 import HomesByCategory from "./page/homesByCategory";
 import HomesByAddress from "./page/homeByAddress";
 import CreatePost from "./page/create";
+import Profile from "./page/profile";
 
 function App() {
     let dataUser = useSelector(state => {
@@ -17,12 +18,13 @@ function App() {
     })
     return (
         <Routes>
-            <Route path={'/'} element={<Register/>}></Route>
-            <Route path={'/login'} element={<Login/>}></Route>
+            <Route path={'/register'} element={<Register/>}></Route>
+            <Route path={'/'} element={<Login/>}></Route>
             {
                 dataUser != null ?
                     <Route path={'/home'} element={<Home/>}>
                         <Route path={'/home'} element={<ListHome/>}></Route>
+                        <Route path={'profile'} element={<Profile/>}></Route>
                         <Route path={'detail/:id'} element={<Detail></Detail>}></Route>
                         <Route path={'create'} element={<CreatePost/>}></Route>
                         <Route path={'your-homes'} element={<YourHomes></YourHomes>}></Route>

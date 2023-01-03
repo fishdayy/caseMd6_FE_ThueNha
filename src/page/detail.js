@@ -57,9 +57,9 @@ const Detail = () => {
                             <div className="col-md-8" style={{boxSizing: "border-box", display: "block", width: "70%"}}>
                                 <ul className="flex-tab" style={{width: "60%"}}>
                                     <li><a href="" className="overview1 active_1-1"
-                                           style={{color: "rgb(57, 70, 109)"}}>Tổng quan</a></li>
-                                    <li><a href="" style={{color: "rgb(57, 70, 109)"}}>Thư viện ảnh</a></li>
-                                    <li><a href="" style={{color: "rgb(57, 70, 109)"}}>Đánh giá</a></li>
+                                           style={{color: "rgb(57, 70, 109)"}}>Overview</a></li>
+                                    <li><a href="" style={{color: "rgb(57, 70, 109)"}}>Photo library</a></li>
+                                    <li><a href="" style={{color: "rgb(57, 70, 109)"}}>Evaluate</a></li>
                                 </ul>
                             </div>
                             <div className="col-md-4" style={{width: "30%"}}>

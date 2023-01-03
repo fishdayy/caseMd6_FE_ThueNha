@@ -1,13 +1,18 @@
 import {Link, useNavigate} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const Navbar = () => {
     const navigate = useNavigate()
+    const user = useSelector(state => {
+        console.log(state)
+        return state.user.userNow.userFind[0]
+    })
     return (
-        <>
-            <div className='row'>
-                <div className='col-12'>
-                    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-                        <div className="container-fluid">
+        <div style={{backgroundColor:"white"}}>
+            <div className='row' style={{backgroundColor:"white"}}>
+                <div className='col-12' style={{backgroundColor:"white"}}>
+                    <nav className="navbar navbar-expand-lg bg-body-tertiary" style={{backgroundColor:"white"}}>
+                        <div className="container-fluid" style={{backgroundColor:"white"}}>
                             <Link to={'/home'}><a className="navbar-brand" href="#"><img
                                 src="https://asahiluxstay.com/v2/images/logo.png?v=2" className="logo"/></a></Link>
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -32,19 +37,18 @@ const Navbar = () => {
                                                 <hr className="dropdown-divider"/>
                                             </li>
                                             <li><Link to={'/home/your-homes'}><a className="dropdown-item">List My Posts</a></Link></li>
-
                                         </ul>
                                     </li>
                                 </ul>
-                                <ul className="navbar-nav">
+                                <ul className="username" style={{listStyle:"none",marginRight:"20px",marginBottom:"0px"}}>
                                     <li className="nav-item">
-                                        <a className="nav-link active" aria-current="page" href="#">Username</a>
+                                        <Link to={'/home/profile'}><a className="nav-link active" aria-current="page">{user.username}</a></Link>
                                     </li>
                                 </ul>
                                 <form className="d-flex" role="search">
                                     <button onClick={() => {
                                         localStorage.clear()
-                                        navigate('/login')
+                                        navigate('/')
                                     }} className="btn btn-outline-danger" type="submit">Log Out
                                     </button>
                                 </form>
@@ -53,7 +57,7 @@ const Navbar = () => {
                     </nav>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

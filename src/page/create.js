@@ -1,16 +1,33 @@
 import './CSS/login.css';
 import './CSS/create.css';
-import Footer from "../components/Footer";
-import {Formik, Form, Field} from "formik";
+import {Formik, Form, Field, ErrorMessage} from "formik";
 import {useDispatch, useSelector} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import {createHome} from "../service/homeService";
-import {useState} from "react";
+import React, {useState} from "react";
 import {storage} from "./firebase/config";
 import {
     ref, getDownloadURL, uploadBytesResumable
 } from "firebase/storage";
 import {createImg} from "../service/imageService";
+import * as Yup from "yup";
+
+const InputSchema = Yup.object().shape({
+    name: Yup.string()
+        .required("Please Enter Name!"),
+    address: Yup.string()
+        .required("Please Enter Address!"),
+    price: Yup.number()
+        .required("Please Enter Price!"),
+    description: Yup.string()
+        .required("Please Enter Description!"),
+    categoryId: Yup.number()
+        .required("Please Enter Category!"),
+    bedroom: Yup.number()
+        .required("Please Enter Bedroom!"),
+    bathroom: Yup.number()
+        .required("Please Enter Bathroom!"),
+})
 
 const CreatePost = () => {
     const dispatch = useDispatch();
@@ -79,15 +96,11 @@ const CreatePost = () => {
     return (
         <>
             <div>
-                <h2 style={{textAlign: "center", marginBottom: "20px", marginTop: "20px"}}>Chia sẻ thông tin về chỗ
-                    ở
-                    của bạn cho chúng tôi</h2>
-                <p style={{textAlign: "center", marginBottom: "30px"}}>Trong bước này, chúng tôi sẽ hỏi xem bạn cho
-                    thuê
-                    loại chỗ ở nào và bạn muốn cho khách đặt toàn bộ nhà hay chỉ một phòng cụ thể</p>
-                <div>
+                <h2 style={{textAlign: "center", marginBottom: "20px", marginTop: "20px"}}>Share your accommodation information with us</h2>
+                <p style={{textAlign: "center", marginBottom: "30px"}}>In this step, we'll ask what type of accommodation you rent and do you want guests to book the whole house or just a specific room</p>
+                <div className="formCreate">
                     <div className="create" id="backgroundCreate" style={{float: "left"}}>
-                        <Formik initialValues={{
+                        <Formik validationSchema={InputSchema} initialValues={{
                             name: '',
                             address: '',
                             price: '',
@@ -98,68 +111,76 @@ const CreatePost = () => {
                             userId: userId
                         }} onSubmit={(values) => handleSubmit(values)}>
                             <Form id="createPost" tabIndex="500">
-                                <h3>Create Post Rent Home</h3>
-                                <div className="name">
+                                <h3 style={{color:"#dc3545"}}>Create Post Rent Home</h3>
+                                <div className="name" style={{display: "flex"}}>
                                     <Field type="text" name="name"/>
+                                    <ErrorMessage name="name" component="div" style={{color: "red"}}></ErrorMessage>
                                     <label>Name</label>
                                 </div>
-                                <div className="address">
+                                <div className="address" style={{display: "flex"}}>
                                     <Field type="text" name="address"/>
+                                    <ErrorMessage name="address" component="div" style={{color: "red"}}></ErrorMessage>
                                     <label>Address</label>
                                 </div>
-                                <div className="Price">
+                                <div className="Price" style={{display: "flex"}}>
                                     <Field type="number" name="price"/>
+                                    <ErrorMessage name="price" component="div" style={{color: "red"}}></ErrorMessage>
                                     <label>Price</label>
                                 </div>
-                                <div className="description">
+                                <div className="description" style={{display: "flex"}}>
                                     <Field style={{height: "200px"}} name="description"/>
+                                    <ErrorMessage name="description" component="div" style={{color: "red"}}></ErrorMessage>
                                     <label>Description</label>
                                 </div>
-                                <div className="category">
+                                <div className="category" style={{display: "flex"}}>
                                     <Field as={"select"} name={"categoryId"}>
+                                        <option value="">Category</option>
                                         <option value="1">Hotel</option>
                                         <option value="2">Hostel</option>
                                         <option value="3">Homestay</option>
                                     </Field>
+                                    <ErrorMessage name="categoryId" component="div" style={{color: "red"}}></ErrorMessage>
                                     <label>Category</label>
                                 </div>
-                                <div className="bedroom">
+                                <div className="bedroom" style={{display: "flex"}}>
                                     <Field as={"select"} name={"bedroom"}>
+                                        <option value="">Bedroom</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                     </Field>
+                                    <ErrorMessage name="bedroom" component="div" style={{color: "red"}}></ErrorMessage>
                                     <label>Bedroom</label>
                                 </div>
-                                <div className="bathroom">
+                                <div className="bathroom" style={{display: "flex"}}>
                                     <Field as={"select"} name={"bathroom"}>
+                                        <option value="">Bathroom</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                     </Field>
+                                    <ErrorMessage name="bathroom" component="div" style={{color: "red"}}></ErrorMessage>
                                     <label>Bathroom</label>
                                 </div>
                                 <div className="submit" style={{border: "1px solid #999"}}>
-                                    <button className="dark">Submit</button>
+                                    <button className="dark" >Submit</button>
                                 </div>
                             </Form>
                         </Formik>
                         <br/>
-                        <>
-                            <input style={{position: "relative", bottom: '119px', width: '27rem', border: 'none'}}
+                        <div className="divImg" style={{display:"flex"}} tabIndex="500">
+                            <input className="inputImg" style={{position: "relative", bottom: '119px', width: '70%', border: 'none',left:"5%"}}
                                    type="file" multiple onChange={handleChange}/>
-                            <button style={{color: 'red', position: 'relative', bottom: '7.5rem', right: '3px'}}
+                            <button style={{color: 'red', position: 'relative', bottom: '7.5rem', right: '1%'}}
                                     onClick={() => dispatch(handleUpload)}>Upload
                             </button>
-                        </>
-
-
+                        </div>
                         <br/>
                     </div>
-                    <br/><br/><br/><br/><br/>
-                    <div className="infoCreate" id="backgroundCreate" style={{float: "left"}}>
+                    <br/><br/><br/><br/>
+                    <div className="infoCreate" id="backgroundCreate" style={{float: "left",borderRadius:"20px"}}>
                         <form id="createPost" tabIndex="500">
-                            <ul style={{listStyleType: "upper-roman"}}>
+                            <ol >
                                 <div>
                                     <div>
                                         <img
@@ -169,13 +190,10 @@ const CreatePost = () => {
                                     <div>
                                         <li>
                                             <strong>
-                                                Chia sẻ thông tin về chỗ ở của bạn cho chúng tôi
+                                                Tell us about your place
                                             </strong>
                                             <p>
-                                                Chia sẻ một số thông tin cơ bản, như vị trí của nhà/phòng cho thuê
-                                                và số
-                                                lượng khách
-                                                có thể ở tại đó.
+                                                Share some basic information, like the location of the rental property and how many guests can stay there.
                                             </p>
                                         </li>
                                     </div>
@@ -194,13 +212,10 @@ const CreatePost = () => {
                                     <div>
                                         <li>
                                             <strong>
-                                                Làm cho nhà/phòng cho thuê trở nên nổi bật
+                                                Make your rental home/room stand out
                                             </strong>
                                             <p>
-                                                Thêm từ 5 ảnh trở lên cùng với tiêu đề và nội dung mô tả – chúng tôi
-                                                sẽ
-                                                giúp bạn
-                                                thực hiện. </p>
+                                                Add 5 or more photos with a title and description – we'll help you do it. </p>
                                         </li>
                                     </div>
 
@@ -217,18 +232,14 @@ const CreatePost = () => {
                                     <div>
                                         <li>
                                             <strong>
-                                                Hoàn thiện và đăng mục cho thuê
+                                                Finalize and post rentals
                                             </strong>
                                             <p>
-                                                Lựa chọn xem bạn muốn bắt đầu với việc đón tiếp khách có kinh
-                                                nghiệm,
-                                                chọn giá
-                                                khởi
-                                                điểm hay đăng mục cho thuê. </p>
+                                                Choose whether you want to start with experienced hospitality, choose a starting price, or post a rental. </p>
                                         </li>
                                     </div>
                                 </div>
-                            </ul>
+                            </ol>
                         </form>
                     </div>
                 </div>
